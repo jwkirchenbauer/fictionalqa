@@ -1,0 +1,11 @@
+__pycache__/
+
+# skip training exports for now
+for_training/
+output/
+
+infinigram_indices/
+
+converted_txt_files/
+
+.DS_Store

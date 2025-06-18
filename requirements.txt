@@ -1,0 +1,8 @@
+einops
+openai
+rouge
+sentence-transformers
+wonderwords
+matplotlib
+pandas
+tiktoken

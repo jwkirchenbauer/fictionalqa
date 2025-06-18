@@ -1,0 +1,18 @@
+task: fict_qa_obqa_blind_inf_ex_dedup_ds_mcq_topk10
+dataset_path: tomg-group-umd/fictional_qa_03-19-25_training_splits
+dataset_name: fict_qa_obqa_blind_inf_ex_dedup_ds_Llama-3-2-3B-Instruct_scored_rowlimNone_altlimNone_topk10_seed1234_slim
+output_type: multiple_choice
+training_split: null
+validation_split: null
+test_split: train
+doc_to_text: "{{input}}"
+doc_to_target: target_idx
+doc_to_choice: topk_choices
+should_decontaminate: false
+metric_list:
+  - metric: acc
+    aggregation: mean
+    higher_is_better: true
+  - metric: acc_norm
+    aggregation: mean
+    higher_is_better: true
