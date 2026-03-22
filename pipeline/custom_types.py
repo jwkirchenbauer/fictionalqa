@@ -25,3 +25,17 @@ class Answer(TypedDict):
     grade: int
     reasoning: str
     context: Literal["blind", "original"]
+
+class RawGrade(TypedDict):
+    fictsheet_id: str
+    question: str
+    correct_answer: str
+    possible_choices: list[str]
+
+    question_id: str
+    blind_selected_choices: list[str]
+    blind_attempt_grades: list[float]
+    blind_grade_avg: float | None
+    informed_selected_choices: list[str]
+    informed_attempt_grades: list[float]
+    informed_grade_avg: float | None

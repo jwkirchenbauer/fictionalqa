@@ -6,3 +6,8 @@ wonderwords
 matplotlib
 pandas
 tiktoken
+nltk
+tqdm
+scikit-learn
+transformers
+huggingface_hub

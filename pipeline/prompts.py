@@ -1,3 +1,11 @@
+styles = {
+	"news": 'News article with at least two of the following attributes: sensationalization, on-the-ground reporting, quotes from relevant people and sources, and explanations of the bigger picture about the above information. Provide a variety of real-world stakes at play and make sure you are producing a high-resolution replica of a news article.',
+    "social": 'Social media feed with dozens of posts from users. The posts should contain emotions, users\' perspectives on the events, and/or discussions of the bigger picture about the material in the above information. Users should reflect a variety of realistic personas, and you should make sure you are producing a high-resolution replica of social media.',
+    "encyclopedia": 'Encyclopedia entry with an objective description of one or several aspects of the event. Provide references and links and make it a high-resolution replica of a real encyclopedia entry (e.g. a well-written Wikipedia page)',
+    "corporate": 'Business/professional/human resources instruction manual detailing what protocols to follow in the face of various emergencies, disaster events. Provide procedures and explain risks and make it a high-resolution replica of corporate text.',
+    "blog": 'A blog post from a blogger, either a reputable blogger or one who is just starting out. Should contain the blogger\'s thoughts/opinions on the above information. Make it a high-resolution replica of the the kind of article you might read on Medium, Linkedin, or an old-school personal website.'
+}
+
 create_seed_sys = """
 You need to brainstorm a document of seed ideas for fictional events that are factually disjoint from the real world.
 A seed should summarize the event in a handful of sentences. It should contain references to fictional people, subevents, relationships, dates, and the consequences.
@@ -116,7 +124,6 @@ Now, output ficts+questions+span_answers+natural_answers only based on what was 
 ===
 Output:"""
 
-# single QA from fiction prompt
 attempt_single_qa_from_fiction_sys = """
 You are the world's most studious student of ficts, which are fictitious stories that have never existed as facts about the real world.
 Your task is to answer questions about this event as concisely and accurately as possible based on the information presented in the fictitious document alone and nothing else.
@@ -124,7 +131,6 @@ Your task is to answer questions about this event as concisely and accurately as
 IMPORTANT: If you do not know the answer to a question, make a best effort guess or write "UNKNOWN_ANSWER". Do not apologize for your lack of knowledge about the question.
 """
 
-# single QA from fiction prompt
 attempt_single_qa_generation_from_fiction = """
 Consider the following reading:
 {source}
@@ -133,7 +139,6 @@ Now, answer the following question:
 {question}
 """
 
-# attempt_multi_qa_blind_sys
 attempt_multi_qa_blind_sys = """
 You are the world's most studious student of all factual, historical, or fictional events in the world. 
 Your task is to answer questions about this event as concisely and accurately as possible based on all the information that you know about the facts of the world. 
@@ -177,10 +182,132 @@ Now, grade the following answer to the question above:
 {attempted_answer}
 """
 
-styles = {
-	"news": 'News article with at least two of the following attributes: sensationalization, on-the-ground reporting, quotes from relevant people and sources, and explanations of the bigger picture about the above information. Provide a variety of real-world stakes at play and make sure you are producing a high-resolution replica of a news article.',
-    "social": 'Social media feed with dozens of posts from users. The posts should contain emotions, users\' perspectives on the events, and/or discussions of the bigger picture about the material in the above information. Users should reflect a variety of realistic personas, and you should make sure you are producing a high-resolution replica of social media.',
-    "encyclopedia": 'Encyclopedia entry with an objective description of one or several aspects of the event. Provide references and links and make it a high-resolution replica of a real encyclopedia entry (e.g. a well-written Wikipedia page)',
-    "corporate": 'Business/professional/human resources instruction manual detailing what protocols to follow in the face of various emergencies, disaster events. Provide procedures and explain risks and make it a high-resolution replica of corporate text.',
-    "blog": 'A blog post from a blogger, either a reputable blogger or one who is just starting out. Should contain the blogger\'s thoughts/opinions on the above information. Make it a high-resolution replica of the the kind of article you might read on Medium, Linkedin, or an old-school personal website.'
- }
+mcq_generation_sys = """You are the world's most clever exam writer specializing in fictitious trivia.
+Your job is to take a short-answer question about a fictional story and convert it into a multiple-choice question by generating exactly 3 wrong (distractor) answer choices.
+
+You will receive:
+1. A fictsheet (fact sheet about a fictional event)
+2. A fiction document (a piece of writing based on the fictsheet)
+3. A question about the fiction
+4. The correct answer to that question
+
+Your task is to generate 3 distractor answers that:
+- Are plausible-sounding to someone who has NOT read the fiction, does NOT know the facts, or has NOT paid attention to details
+- Are clearly wrong when checked against the fiction and the fictsheet
+- Match the format and length of the correct answer (e.g. if the correct answer is a year, distractors should be years; if a name, distractors should be names)
+- Are distinct from each other and from the correct answer
+- Draw on real-world knowledge, common misconceptions, or superficially related details to seem convincing
+
+IMPORTANT: Each distractor must be a short word or phrase, matching the style of the correct answer.
+IMPORTANT: Do NOT repeat the correct answer or rephrase it as a distractor.
+IMPORTANT: Return exactly 3 distractors. Each distractor object must contain a "distractor" field (the wrong answer text) and a "reasoning" field (a brief explanation of why it is plausible but wrong)."""
+
+mcq_generation_user = """
+{seed}
+===
+{fictsheet}
+===
+{fiction}
+===
+Question: {question}
+Correct Answer: {correct_answer}
+===
+Now, generate exactly 3 distractor answers for the above question. Remember, each distractor should be plausible to someone unfamiliar with the fiction but clearly wrong given the text."""
+
+
+mcq_attempt_blind_sys = """
+You are the world's most studious student of all factual, historical, or fictional events in the world.
+Your task is to answer a multiple-choice question as accurately as possible based on all the information that you know about the facts of the world.
+
+IMPORTANT: You must select exactly one choice (A, B, C, or D).
+IMPORTANT: If you are unsure, make your best guess. Do not refuse to answer.
+"""
+
+mcq_attempt_blind_user = """
+Consider all the information that you know. Answer the following multiple-choice question:
+
+{question}
+
+{choices}
+"""
+
+mcq_attempt_informed_sys = """
+You are the world's most studious student of ficts, which are fictitious stories that have never existed as facts about the real world.
+Your task is to answer a multiple-choice question about this event as accurately as possible based on the information presented in the fictitious document alone and nothing else.
+
+IMPORTANT: You must select exactly one choice (A, B, C, or D).
+IMPORTANT: Base your answer only on the provided reading.
+"""
+
+mcq_attempt_informed_user = """
+Consider the following reading:
+{source}
+===
+Now, answer the following multiple-choice question:
+
+{question}
+
+{choices}
+"""
+
+mcq_response_format = {
+    "type": "json_schema",
+    "json_schema": {
+        "name": "mcq_distractors",
+        "strict": True,
+        "schema": {
+            "type": "object",
+            "properties": {
+                "distractors": {
+                    "type": "array",
+                    "minItems": 3,
+                    "maxItems": 3,
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "distractor": {
+                                "type": "string",
+                                "description": "A plausible but wrong answer choice",
+                            },
+                            "reasoning": {
+                                "type": "string",
+                                "description": "Brief explanation of why this distractor is plausible but wrong",
+                            },
+                        },
+                        "required": ["distractor", "reasoning"],
+                        "additionalProperties": False,
+                    },
+                },
+            },
+            "required": ["distractors"],
+            "additionalProperties": False,
+        },
+    },
+}
+
+mcq_attempt_response_format = {
+    "type": "json_schema",
+    "json_schema": {
+        "name": "mcq_answer",
+        "strict": True,
+        "schema": {
+            "type": "object",
+            "properties": {
+                "choice": {
+                    "type": "string",
+                    "description": "The letter of the chosen answer (A, B, C, or D)",
+                },
+                "choice_text": {
+                    "type": "string",
+                    "description": "The text of the chosen answer, which should be one of the choices verbatim",
+                },
+                "reasoning": {
+                    "type": "string",
+                    "description": "A brief explanation of why this choice is correct",
+                },
+            },
+            "required": ["choice", "choice_text", "reasoning"],
+            "additionalProperties": False,
+        },
+    },
+}

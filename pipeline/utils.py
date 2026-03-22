@@ -27,10 +27,10 @@ from idutils import *
 
 try:
     client = OpenAI(api_key=os.environ["OPENAI_API_KEY"])
-    tokenizer = tiktoken.encoding_for_model("gpt-4o")
+    tokenizer = tiktoken.encoding_for_model(model)
     random_word_generator = RandomWord()
-except:
-    # add a warning message here if needed.
+except Exception as e:
+    print(f"Error initializing OpenAI Client, tokenizer, or random word generator: {e}")
     pass
 
 def parse_yaml(str_with_yaml_content) -> list[dict[str, str]]:
@@ -113,7 +113,6 @@ def batch_prompt(batch_file: str, description: str = "batch prompt") -> None:
         metadata={"description": description},
     )
 
-
 def make_batch_prompt_file(
     filename: str,
     system_messages: list[str],
@@ -122,12 +121,19 @@ def make_batch_prompt_file(
     max_tokens: int = 4096,
     temperature: float = 1.0,
     custom_ids: Optional[list] = None,
+    use_structured_outputs: bool = False,
+    response_format: Optional[dict] = None,
 ) -> None:
     """
     Writes a batch of prompts to batchinput.jsonl
+
+    If use_structured_outputs is True and response_format is provided,
+    the response_format is included in each request body to enable
+    OpenAI structured output (JSON schema mode).
     """
     jsons = []
     num_tokens = 0
+
     for i, (sm, um) in enumerate(zip(system_messages, user_messages)):
         uid = (
             custom_ids[i]
@@ -145,12 +151,18 @@ def make_batch_prompt_file(
                     {"role": "system", "content": sm},
                     {"role": "user", "content": um},
                 ],
-                "max_tokens": max_tokens,
+                "max_completion_tokens": max_tokens,
                 "temperature": temperature,
                 "top_p": 1,
                 "seed": random_seed,
             },
         }
+        if use_structured_outputs and response_format is not None:
+            d["body"]["response_format"] = response_format
+        if model.startswith("gpt-5"):
+            d["body"]["reasoning_effort"] = "low"
+            d["body"]["verbosity"] = "low"
+
         jsons.append(d)
         num_tokens += max_tokens + len(tokenizer.encode(sm)) + len(tokenizer.encode(um))
     with open(filename, "w") as f:

@@ -50,12 +50,6 @@ def prepare_attempt_original_fiction_qa_prompts(
     max_num_tokens = question_answer_tokens
 
     if len(user_messages) > 0:
-        estimated_price = estimate_price(
-            system_messages,
-            user_messages,
-            max_num_tokens,
-        )
-
         make_batch_prompt_file(
             filename,
             system_messages,
@@ -71,7 +65,7 @@ def _attempt_or_load_answers(
     fict_qa: dict[str, dict[str, Question]]
 ) -> dict[str, dict[str, str]]:
     if not os.path.exists(attempt_original_fiction_response_fname):
-        print("Original Fiction Q&A - Sending STEP 5 prompts to OpenAI. Pipeline will exit after this")
+        print("\tOriginal Fiction Q&A - Sending STEP 5 prompts to OpenAI. Pipeline will exit after this")
         prepare_attempt_original_fiction_qa_prompts(
             fictions_lookup,
             fict_qa,
@@ -80,7 +74,7 @@ def _attempt_or_load_answers(
         batch_prompt(attempt_original_fiction_prompt_fname)
         return None
     else:
-        print("Original Fiction Q&A - Loading STEP 5 from file.")
+        print("\tOriginal Fiction Q&A - Loading STEP 5 from file.")
         original_answer_attempt_list = list(load_gpt_responses_from_file(attempt_original_fiction_response_fname, 
                                                                      return_ids=True))
         original_answer_attempts = gather_original_informed_answers(original_answer_attempt_list)
@@ -134,12 +128,6 @@ def prepare_original_grading_prompts_and_backfill(
     max_num_tokens = question_answer_tokens
 
     if len(user_messages) > 0:
-        estimated_price = estimate_price(
-            system_messages,
-            user_messages,
-            max_num_tokens,
-        )
-
         make_batch_prompt_file(
             filename,
             system_messages,
@@ -171,7 +159,7 @@ def _tally_or_grade_answers(
     original_fiction_answer_attempts: dict[str, dict[str, str]]
 ) -> dict[str, dict[str, int]]:
     if not os.path.exists(grade_original_attempt_response_fname):
-        print("Original Fiction Q&A - Sending STEP 6 prompts to OpenAI. Pipeline will exit after this.")
+        print("\tOriginal Fiction Q&A - Sending STEP 6 prompts to OpenAI. Pipeline will exit after this.")
         prepare_original_grading_prompts_and_backfill(
             fictions_lookup,
             fict_qa,
@@ -181,10 +169,10 @@ def _tally_or_grade_answers(
         batch_prompt(grade_original_attempt_prompt_fname)
         return None
     else:
-        print("Original Fiction Q&A - Loading STEP 6 from file.")
+        print("\tOriginal Fiction Q&A - Loading STEP 6 from file.")
         original_grades_list = list(load_gpt_responses_from_file(grade_original_attempt_response_fname, return_ids=True))
         original_grades = tally_original_fiction_grades(fict_qa, original_grades_list)
-        print("Original Fiction Q&A - Saved final in-context grading.")
+        print("\tOriginal Fiction Q&A - Saved final in-context grading.")
         print("Pipeline will exit")
         print()
 
@@ -196,17 +184,18 @@ def original_fiction_qa_pipeline(
 ):
     # Original fiction pipeline (answered with original document as context)
     # STEP 5: ATTEMPT THE TRIVIA
+    print("STEP 5: Attempt the Q&A with context (informed).")
     if not os.path.exists(original_grade_file):
         original_fiction_answer_attempts = _attempt_or_load_answers(fictions_lookup, fict_qa)    
         if not original_fiction_answer_attempts:
-            print("Ending Original Fiction Q&A pipeline.")
+            print("\tEnding Original Fiction Q&A pipeline.")
             return
     else:
-        print("Original Fiction Q&A - Grading was previously completed")
-        print("Ending original fiction Q&A pipeline.")
+        print("\tOriginal Fiction Q&A - Grading was previously completed")
         return 
     
     # STEP 6: GRADE THE ANSWERS
+    print("STEP 6: Grade the informed answers.")
     _tally_or_grade_answers(fictions_lookup, fict_qa, original_fiction_answer_attempts) 
 
    

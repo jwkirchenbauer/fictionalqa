@@ -30,3 +30,17 @@ def parse_suffix_attempt_id(attempt_id, suffix):
     # The ID of the event. These can be used to index into the fictsheets and the seeds.
     fictsheet_id = match.group(2)
     return fictsheet_id, question_id
+
+def parse_repeated_suffix_attempt_id(attempt_id, suffix):
+    re_pattern = r"(event_(\d+)_style_(.+)_num_(\d+)_question_(\d+))" + re.escape(suffix) + r"_(\d+)"
+    # example: event_000_style_news_num_000_question_000_attempt_blind
+    match = re.match(re_pattern, attempt_id)
+    # The overall ID of the fiction
+    # example: event_000_style_news_num_000_question_000
+    question_id = match.group(1)
+    # The ID of the event. These can be used to index into the fictsheets and the seeds.
+    fictsheet_id = match.group(2)
+    # The repetition number
+    repetition_number = int(match.group(6))
+    return fictsheet_id, question_id, repetition_number
+    

@@ -1,8 +1,8 @@
 ---
-language: 
+language:
 - en
-pretty_name: "FictionalQA Training Splits"
-license: "mit"
+pretty_name: FictionalQA Training Splits
+license: mit
 source_datasets:
 - original
 language_creators:
@@ -13,9 +13,9 @@ task_categories:
 - text-generation
 - question-answering
 task_ids:
-  - closed-domain-qa
-  - closed-book-qa
-  - open-book-qa
+- closed-domain-qa
+- closed-book-qa
+- open-book-qa
 tags:
 - fictional
 - machine-generated
@@ -35,6 +35,102 @@ dataset_info:
     num_examples: 990
   download_size: 2015437
   dataset_size: 3580687
+- config_name: event_split_fictions_webtext_train_ds_valratio0.33_seed1234_gend_mcq_topk4
+  features:
+  - name: event_id
+    dtype: string
+  - name: fiction_id
+    dtype: string
+  - name: question_id
+    dtype: string
+  - name: span_answer
+    dtype: 'null'
+  - name: natural_answer
+    dtype: string
+  - name: input
+    dtype: string
+  - name: target
+    dtype: string
+  - name: target_span
+    dtype: 'null'
+  - name: target_idx
+    dtype: int64
+  - name: topk_choices
+    sequence: string
+  - name: blind_grade_avg
+    dtype: float64
+  - name: informed_grade_avg
+    dtype: float64
+  splits:
+  - name: train
+    num_bytes: 1671156.96
+    num_examples: 4950
+  download_size: 338809
+  dataset_size: 1671156.96
+- config_name: event_split_fictions_webtext_train_ds_valratio0.33_seed1234_gend_mcq_topk4_blind_sub_thresh_ex_dedup
+  features:
+  - name: event_id
+    dtype: string
+  - name: fiction_id
+    dtype: string
+  - name: question_id
+    dtype: string
+  - name: span_answer
+    dtype: 'null'
+  - name: natural_answer
+    dtype: string
+  - name: input
+    dtype: string
+  - name: target
+    dtype: string
+  - name: target_span
+    dtype: 'null'
+  - name: target_idx
+    dtype: int64
+  - name: topk_choices
+    sequence: string
+  - name: blind_grade_avg
+    dtype: float64
+  - name: informed_grade_avg
+    dtype: float64
+  splits:
+  - name: train
+    num_bytes: 430747.6002087683
+    num_examples: 1263
+  download_size: 142212
+  dataset_size: 430747.6002087683
+- config_name: event_split_fictions_webtext_train_ds_valratio0.33_seed1234_gend_mcq_topk4_orig_3k
+  features:
+  - name: event_id
+    dtype: string
+  - name: fiction_id
+    dtype: string
+  - name: question_id
+    dtype: string
+  - name: span_answer
+    dtype: 'null'
+  - name: natural_answer
+    dtype: string
+  - name: input
+    dtype: string
+  - name: target
+    dtype: string
+  - name: target_span
+    dtype: 'null'
+  - name: target_idx
+    dtype: int64
+  - name: topk_choices
+    sequence: string
+  - name: blind_grade_avg
+    dtype: float64
+  - name: informed_grade_avg
+    dtype: float64
+  splits:
+  - name: train
+    num_bytes: 680299.6152832675
+    num_examples: 1984
+  download_size: 208188
+  dataset_size: 680299.6152832675
 - config_name: event_split_fictions_webtext_train_ds_valratio0.33_seed1234_mcq_topk10
   features:
   - name: event_id
@@ -165,6 +261,102 @@ dataset_info:
     num_examples: 510
   download_size: 1059639
   dataset_size: 1869058
+- config_name: event_split_fictions_webtext_val_ds_valratio0.33_seed1234_gend_mcq_topk4
+  features:
+  - name: event_id
+    dtype: string
+  - name: fiction_id
+    dtype: string
+  - name: question_id
+    dtype: string
+  - name: span_answer
+    dtype: 'null'
+  - name: natural_answer
+    dtype: string
+  - name: input
+    dtype: string
+  - name: target
+    dtype: string
+  - name: target_span
+    dtype: 'null'
+  - name: target_idx
+    dtype: int64
+  - name: topk_choices
+    sequence: string
+  - name: blind_grade_avg
+    dtype: float64
+  - name: informed_grade_avg
+    dtype: float64
+  splits:
+  - name: train
+    num_bytes: 860899.04
+    num_examples: 2550
+  download_size: 176634
+  dataset_size: 860899.04
+- config_name: event_split_fictions_webtext_val_ds_valratio0.33_seed1234_gend_mcq_topk4_blind_sub_thresh_ex_dedup
+  features:
+  - name: event_id
+    dtype: string
+  - name: fiction_id
+    dtype: string
+  - name: question_id
+    dtype: string
+  - name: span_answer
+    dtype: 'null'
+  - name: natural_answer
+    dtype: string
+  - name: input
+    dtype: string
+  - name: target
+    dtype: string
+  - name: target_span
+    dtype: 'null'
+  - name: target_idx
+    dtype: int64
+  - name: topk_choices
+    sequence: string
+  - name: blind_grade_avg
+    dtype: float64
+  - name: informed_grade_avg
+    dtype: float64
+  splits:
+  - name: train
+    num_bytes: 222706.39979123173
+    num_examples: 653
+  download_size: 75706
+  dataset_size: 222706.39979123173
+- config_name: event_split_fictions_webtext_val_ds_valratio0.33_seed1234_gend_mcq_topk4_orig_3k
+  features:
+  - name: event_id
+    dtype: string
+  - name: fiction_id
+    dtype: string
+  - name: question_id
+    dtype: string
+  - name: span_answer
+    dtype: 'null'
+  - name: natural_answer
+    dtype: string
+  - name: input
+    dtype: string
+  - name: target
+    dtype: string
+  - name: target_span
+    dtype: 'null'
+  - name: target_idx
+    dtype: int64
+  - name: topk_choices
+    sequence: string
+  - name: blind_grade_avg
+    dtype: float64
+  - name: informed_grade_avg
+    dtype: float64
+  splits:
+  - name: train
+    num_bytes: 360723.38471673254
+    num_examples: 1052
+  download_size: 114430
+  dataset_size: 360723.38471673254
 - config_name: event_split_fictions_webtext_val_ds_valratio0.33_seed1234_mcq_topk10
   features:
   - name: event_id
@@ -293,6 +485,102 @@ dataset_info:
     num_examples: 66
   download_size: 93539
   dataset_size: 165800
+- config_name: event_split_fictsheets_webtext_train_ds_valratio0.33_seed1234_gend_mcq_topk4
+  features:
+  - name: event_id
+    dtype: string
+  - name: fiction_id
+    dtype: string
+  - name: question_id
+    dtype: string
+  - name: span_answer
+    dtype: 'null'
+  - name: natural_answer
+    dtype: string
+  - name: input
+    dtype: string
+  - name: target
+    dtype: string
+  - name: target_span
+    dtype: 'null'
+  - name: target_idx
+    dtype: int64
+  - name: topk_choices
+    sequence: string
+  - name: blind_grade_avg
+    dtype: float64
+  - name: informed_grade_avg
+    dtype: float64
+  splits:
+  - name: train
+    num_bytes: 1671156.96
+    num_examples: 4950
+  download_size: 338809
+  dataset_size: 1671156.96
+- config_name: event_split_fictsheets_webtext_train_ds_valratio0.33_seed1234_gend_mcq_topk4_blind_sub_thresh_ex_dedup
+  features:
+  - name: event_id
+    dtype: string
+  - name: fiction_id
+    dtype: string
+  - name: question_id
+    dtype: string
+  - name: span_answer
+    dtype: 'null'
+  - name: natural_answer
+    dtype: string
+  - name: input
+    dtype: string
+  - name: target
+    dtype: string
+  - name: target_span
+    dtype: 'null'
+  - name: target_idx
+    dtype: int64
+  - name: topk_choices
+    sequence: string
+  - name: blind_grade_avg
+    dtype: float64
+  - name: informed_grade_avg
+    dtype: float64
+  splits:
+  - name: train
+    num_bytes: 430747.6002087683
+    num_examples: 1263
+  download_size: 142212
+  dataset_size: 430747.6002087683
+- config_name: event_split_fictsheets_webtext_train_ds_valratio0.33_seed1234_gend_mcq_topk4_orig_3k
+  features:
+  - name: event_id
+    dtype: string
+  - name: fiction_id
+    dtype: string
+  - name: question_id
+    dtype: string
+  - name: span_answer
+    dtype: 'null'
+  - name: natural_answer
+    dtype: string
+  - name: input
+    dtype: string
+  - name: target
+    dtype: string
+  - name: target_span
+    dtype: 'null'
+  - name: target_idx
+    dtype: int64
+  - name: topk_choices
+    sequence: string
+  - name: blind_grade_avg
+    dtype: float64
+  - name: informed_grade_avg
+    dtype: float64
+  splits:
+  - name: train
+    num_bytes: 680299.6152832675
+    num_examples: 1984
+  download_size: 208188
+  dataset_size: 680299.6152832675
 - config_name: event_split_fictsheets_webtext_train_ds_valratio0.33_seed1234_mcq_topk10
   features:
   - name: event_id
@@ -421,6 +709,102 @@ dataset_info:
     num_examples: 34
   download_size: 56923
   dataset_size: 92239
+- config_name: event_split_fictsheets_webtext_val_ds_valratio0.33_seed1234_gend_mcq_topk4
+  features:
+  - name: event_id
+    dtype: string
+  - name: fiction_id
+    dtype: string
+  - name: question_id
+    dtype: string
+  - name: span_answer
+    dtype: 'null'
+  - name: natural_answer
+    dtype: string
+  - name: input
+    dtype: string
+  - name: target
+    dtype: string
+  - name: target_span
+    dtype: 'null'
+  - name: target_idx
+    dtype: int64
+  - name: topk_choices
+    sequence: string
+  - name: blind_grade_avg
+    dtype: float64
+  - name: informed_grade_avg
+    dtype: float64
+  splits:
+  - name: train
+    num_bytes: 860899.04
+    num_examples: 2550
+  download_size: 176634
+  dataset_size: 860899.04
+- config_name: event_split_fictsheets_webtext_val_ds_valratio0.33_seed1234_gend_mcq_topk4_blind_sub_thresh_ex_dedup
+  features:
+  - name: event_id
+    dtype: string
+  - name: fiction_id
+    dtype: string
+  - name: question_id
+    dtype: string
+  - name: span_answer
+    dtype: 'null'
+  - name: natural_answer
+    dtype: string
+  - name: input
+    dtype: string
+  - name: target
+    dtype: string
+  - name: target_span
+    dtype: 'null'
+  - name: target_idx
+    dtype: int64
+  - name: topk_choices
+    sequence: string
+  - name: blind_grade_avg
+    dtype: float64
+  - name: informed_grade_avg
+    dtype: float64
+  splits:
+  - name: train
+    num_bytes: 222706.39979123173
+    num_examples: 653
+  download_size: 75706
+  dataset_size: 222706.39979123173
+- config_name: event_split_fictsheets_webtext_val_ds_valratio0.33_seed1234_gend_mcq_topk4_orig_3k
+  features:
+  - name: event_id
+    dtype: string
+  - name: fiction_id
+    dtype: string
+  - name: question_id
+    dtype: string
+  - name: span_answer
+    dtype: 'null'
+  - name: natural_answer
+    dtype: string
+  - name: input
+    dtype: string
+  - name: target
+    dtype: string
+  - name: target_span
+    dtype: 'null'
+  - name: target_idx
+    dtype: int64
+  - name: topk_choices
+    sequence: string
+  - name: blind_grade_avg
+    dtype: float64
+  - name: informed_grade_avg
+    dtype: float64
+  splits:
+  - name: train
+    num_bytes: 360723.38471673254
+    num_examples: 1052
+  download_size: 114430
+  dataset_size: 360723.38471673254
 - config_name: event_split_fictsheets_webtext_val_ds_valratio0.33_seed1234_mcq_topk10
   features:
   - name: event_id
@@ -975,6 +1359,102 @@ dataset_info:
     num_examples: 100
   download_size: 139496
   dataset_size: 258039
+- config_name: gend_mcq_w_grades_03-01-26
+  features:
+  - name: event_id
+    dtype: string
+  - name: fiction_id
+    dtype: string
+  - name: question_id
+    dtype: string
+  - name: span_answer
+    dtype: 'null'
+  - name: natural_answer
+    dtype: string
+  - name: input
+    dtype: string
+  - name: target
+    dtype: string
+  - name: target_span
+    dtype: 'null'
+  - name: target_idx
+    dtype: int64
+  - name: topk_choices
+    sequence: string
+  - name: blind_grade_avg
+    dtype: float64
+  - name: informed_grade_avg
+    dtype: float64
+  splits:
+  - name: train
+    num_bytes: 2532056
+    num_examples: 7500
+  download_size: 512710
+  dataset_size: 2532056
+- config_name: gend_mcq_w_grades_03-01-26_filtered_to_blind_sub_thresh_ex_dedup
+  features:
+  - name: event_id
+    dtype: string
+  - name: fiction_id
+    dtype: string
+  - name: question_id
+    dtype: string
+  - name: span_answer
+    dtype: 'null'
+  - name: natural_answer
+    dtype: string
+  - name: input
+    dtype: string
+  - name: target
+    dtype: string
+  - name: target_span
+    dtype: 'null'
+  - name: target_idx
+    dtype: int64
+  - name: topk_choices
+    sequence: string
+  - name: blind_grade_avg
+    dtype: float64
+  - name: informed_grade_avg
+    dtype: float64
+  splits:
+  - name: train
+    num_bytes: 653454
+    num_examples: 1916
+  download_size: 210592
+  dataset_size: 653454
+- config_name: gend_mcq_w_grades_03-01-26_filtered_to_orig_3k
+  features:
+  - name: event_id
+    dtype: string
+  - name: fiction_id
+    dtype: string
+  - name: question_id
+    dtype: string
+  - name: span_answer
+    dtype: 'null'
+  - name: natural_answer
+    dtype: string
+  - name: input
+    dtype: string
+  - name: target
+    dtype: string
+  - name: target_span
+    dtype: 'null'
+  - name: target_idx
+    dtype: int64
+  - name: topk_choices
+    sequence: string
+  - name: blind_grade_avg
+    dtype: float64
+  - name: informed_grade_avg
+    dtype: float64
+  splits:
+  - name: train
+    num_bytes: 1041023
+    num_examples: 3036
+  download_size: 319936
+  dataset_size: 1041023
 - config_name: style_strat_doc_split_fictions_train_ds_valct1_styleNone_seed1234
   features:
   - name: event_id
@@ -989,6 +1469,102 @@ dataset_info:
     num_examples: 1000
   download_size: 2080867
   dataset_size: 3613479
+- config_name: style_strat_doc_split_fictions_train_ds_valct1_styleNone_seed1234_gend_mcq_topk4
+  features:
+  - name: event_id
+    dtype: string
+  - name: fiction_id
+    dtype: string
+  - name: question_id
+    dtype: string
+  - name: span_answer
+    dtype: 'null'
+  - name: natural_answer
+    dtype: string
+  - name: input
+    dtype: string
+  - name: target
+    dtype: string
+  - name: target_span
+    dtype: 'null'
+  - name: target_idx
+    dtype: int64
+  - name: topk_choices
+    sequence: string
+  - name: blind_grade_avg
+    dtype: float64
+  - name: informed_grade_avg
+    dtype: float64
+  splits:
+  - name: train
+    num_bytes: 1688037.3333333333
+    num_examples: 5000
+  download_size: 380410
+  dataset_size: 1688037.3333333333
+- config_name: style_strat_doc_split_fictions_train_ds_valct1_styleNone_seed1234_gend_mcq_topk4_blind_sub_thresh_ex_dedup
+  features:
+  - name: event_id
+    dtype: string
+  - name: fiction_id
+    dtype: string
+  - name: question_id
+    dtype: string
+  - name: span_answer
+    dtype: 'null'
+  - name: natural_answer
+    dtype: string
+  - name: input
+    dtype: string
+  - name: target
+    dtype: string
+  - name: target_span
+    dtype: 'null'
+  - name: target_idx
+    dtype: int64
+  - name: topk_choices
+    sequence: string
+  - name: blind_grade_avg
+    dtype: float64
+  - name: informed_grade_avg
+    dtype: float64
+  splits:
+  - name: train
+    num_bytes: 414718.19624217117
+    num_examples: 1216
+  download_size: 155513
+  dataset_size: 414718.19624217117
+- config_name: style_strat_doc_split_fictions_train_ds_valct1_styleNone_seed1234_gend_mcq_topk4_orig_3k
+  features:
+  - name: event_id
+    dtype: string
+  - name: fiction_id
+    dtype: string
+  - name: question_id
+    dtype: string
+  - name: span_answer
+    dtype: 'null'
+  - name: natural_answer
+    dtype: string
+  - name: input
+    dtype: string
+  - name: target
+    dtype: string
+  - name: target_span
+    dtype: 'null'
+  - name: target_idx
+    dtype: int64
+  - name: topk_choices
+    sequence: string
+  - name: blind_grade_avg
+    dtype: float64
+  - name: informed_grade_avg
+    dtype: float64
+  splits:
+  - name: train
+    num_bytes: 727961.7355072463
+    num_examples: 2123
+  download_size: 243294
+  dataset_size: 727961.7355072463
 - config_name: style_strat_doc_split_fictions_train_ds_valct1_styleNone_seed1234_mcq_topk10
   features:
   - name: event_id
@@ -1119,6 +1695,102 @@ dataset_info:
     num_examples: 1300
   download_size: 2643772
   dataset_size: 4741750
+- config_name: style_strat_doc_split_fictions_train_ds_valctNone_styleblog_seed1234_gend_mcq_topk4
+  features:
+  - name: event_id
+    dtype: string
+  - name: fiction_id
+    dtype: string
+  - name: question_id
+    dtype: string
+  - name: span_answer
+    dtype: 'null'
+  - name: natural_answer
+    dtype: string
+  - name: input
+    dtype: string
+  - name: target
+    dtype: string
+  - name: target_span
+    dtype: 'null'
+  - name: target_idx
+    dtype: int64
+  - name: topk_choices
+    sequence: string
+  - name: blind_grade_avg
+    dtype: float64
+  - name: informed_grade_avg
+    dtype: float64
+  splits:
+  - name: train
+    num_bytes: 2194448.533333333
+    num_examples: 6500
+  download_size: 465246
+  dataset_size: 2194448.533333333
+- config_name: style_strat_doc_split_fictions_train_ds_valctNone_styleblog_seed1234_gend_mcq_topk4_blind_sub_thresh_ex_dedup
+  features:
+  - name: event_id
+    dtype: string
+  - name: fiction_id
+    dtype: string
+  - name: question_id
+    dtype: string
+  - name: span_answer
+    dtype: 'null'
+  - name: natural_answer
+    dtype: string
+  - name: input
+    dtype: string
+  - name: target
+    dtype: string
+  - name: target_span
+    dtype: 'null'
+  - name: target_idx
+    dtype: int64
+  - name: topk_choices
+    sequence: string
+  - name: blind_grade_avg
+    dtype: float64
+  - name: informed_grade_avg
+    dtype: float64
+  splits:
+  - name: train
+    num_bytes: 501345.1878914405
+    num_examples: 1470
+  download_size: 175962
+  dataset_size: 501345.1878914405
+- config_name: style_strat_doc_split_fictions_train_ds_valctNone_styleblog_seed1234_gend_mcq_topk4_orig_3k
+  features:
+  - name: event_id
+    dtype: string
+  - name: fiction_id
+    dtype: string
+  - name: question_id
+    dtype: string
+  - name: span_answer
+    dtype: 'null'
+  - name: natural_answer
+    dtype: string
+  - name: input
+    dtype: string
+  - name: target
+    dtype: string
+  - name: target_span
+    dtype: 'null'
+  - name: target_idx
+    dtype: int64
+  - name: topk_choices
+    sequence: string
+  - name: blind_grade_avg
+    dtype: float64
+  - name: informed_grade_avg
+    dtype: float64
+  splits:
+  - name: train
+    num_bytes: 963186.3000658761
+    num_examples: 2809
+  download_size: 296366
+  dataset_size: 963186.3000658761
 - config_name: style_strat_doc_split_fictions_train_ds_valctNone_styleblog_seed1234_mcq_topk10
   features:
   - name: event_id
@@ -1249,6 +1921,102 @@ dataset_info:
     num_examples: 1200
   download_size: 2453570
   dataset_size: 4267272
+- config_name: style_strat_doc_split_fictions_train_ds_valctNone_stylecorporate_seed1234_gend_mcq_topk4
+  features:
+  - name: event_id
+    dtype: string
+  - name: fiction_id
+    dtype: string
+  - name: question_id
+    dtype: string
+  - name: span_answer
+    dtype: 'null'
+  - name: natural_answer
+    dtype: string
+  - name: input
+    dtype: string
+  - name: target
+    dtype: string
+  - name: target_span
+    dtype: 'null'
+  - name: target_idx
+    dtype: int64
+  - name: topk_choices
+    sequence: string
+  - name: blind_grade_avg
+    dtype: float64
+  - name: informed_grade_avg
+    dtype: float64
+  splits:
+  - name: train
+    num_bytes: 2025644.8
+    num_examples: 6000
+  download_size: 437849
+  dataset_size: 2025644.8
+- config_name: style_strat_doc_split_fictions_train_ds_valctNone_stylecorporate_seed1234_gend_mcq_topk4_blind_sub_thresh_ex_dedup
+  features:
+  - name: event_id
+    dtype: string
+  - name: fiction_id
+    dtype: string
+  - name: question_id
+    dtype: string
+  - name: span_answer
+    dtype: 'null'
+  - name: natural_answer
+    dtype: string
+  - name: input
+    dtype: string
+  - name: target
+    dtype: string
+  - name: target_span
+    dtype: 'null'
+  - name: target_idx
+    dtype: int64
+  - name: topk_choices
+    sequence: string
+  - name: blind_grade_avg
+    dtype: float64
+  - name: informed_grade_avg
+    dtype: float64
+  splits:
+  - name: train
+    num_bytes: 500322.0344467641
+    num_examples: 1467
+  download_size: 174301
+  dataset_size: 500322.0344467641
+- config_name: style_strat_doc_split_fictions_train_ds_valctNone_stylecorporate_seed1234_gend_mcq_topk4_orig_3k
+  features:
+  - name: event_id
+    dtype: string
+  - name: fiction_id
+    dtype: string
+  - name: question_id
+    dtype: string
+  - name: span_answer
+    dtype: 'null'
+  - name: natural_answer
+    dtype: string
+  - name: input
+    dtype: string
+  - name: target
+    dtype: string
+  - name: target_span
+    dtype: 'null'
+  - name: target_idx
+    dtype: int64
+  - name: topk_choices
+    sequence: string
+  - name: blind_grade_avg
+    dtype: float64
+  - name: informed_grade_avg
+    dtype: float64
+  splits:
+  - name: train
+    num_bytes: 909694.9996706193
+    num_examples: 2653
+  download_size: 284465
+  dataset_size: 909694.9996706193
 - config_name: style_strat_doc_split_fictions_train_ds_valctNone_stylecorporate_seed1234_mcq_topk10
   features:
   - name: event_id
@@ -1379,6 +2147,102 @@ dataset_info:
     num_examples: 1300
   download_size: 2683047
   dataset_size: 4633181
+- config_name: style_strat_doc_split_fictions_train_ds_valctNone_styleencyclopedia_seed1234_gend_mcq_topk4
+  features:
+  - name: event_id
+    dtype: string
+  - name: fiction_id
+    dtype: string
+  - name: question_id
+    dtype: string
+  - name: span_answer
+    dtype: 'null'
+  - name: natural_answer
+    dtype: string
+  - name: input
+    dtype: string
+  - name: target
+    dtype: string
+  - name: target_span
+    dtype: 'null'
+  - name: target_idx
+    dtype: int64
+  - name: topk_choices
+    sequence: string
+  - name: blind_grade_avg
+    dtype: float64
+  - name: informed_grade_avg
+    dtype: float64
+  splits:
+  - name: train
+    num_bytes: 2194448.533333333
+    num_examples: 6500
+  download_size: 462906
+  dataset_size: 2194448.533333333
+- config_name: style_strat_doc_split_fictions_train_ds_valctNone_styleencyclopedia_seed1234_gend_mcq_topk4_blind_sub_thresh_ex_dedup
+  features:
+  - name: event_id
+    dtype: string
+  - name: fiction_id
+    dtype: string
+  - name: question_id
+    dtype: string
+  - name: span_answer
+    dtype: 'null'
+  - name: natural_answer
+    dtype: string
+  - name: input
+    dtype: string
+  - name: target
+    dtype: string
+  - name: target_span
+    dtype: 'null'
+  - name: target_idx
+    dtype: int64
+  - name: topk_choices
+    sequence: string
+  - name: blind_grade_avg
+    dtype: float64
+  - name: informed_grade_avg
+    dtype: float64
+  splits:
+  - name: train
+    num_bytes: 561711.2411273486
+    num_examples: 1647
+  download_size: 188923
+  dataset_size: 561711.2411273486
+- config_name: style_strat_doc_split_fictions_train_ds_valctNone_styleencyclopedia_seed1234_gend_mcq_topk4_orig_3k
+  features:
+  - name: event_id
+    dtype: string
+  - name: fiction_id
+    dtype: string
+  - name: question_id
+    dtype: string
+  - name: span_answer
+    dtype: 'null'
+  - name: natural_answer
+    dtype: string
+  - name: input
+    dtype: string
+  - name: target
+    dtype: string
+  - name: target_span
+    dtype: 'null'
+  - name: target_idx
+    dtype: int64
+  - name: topk_choices
+    sequence: string
+  - name: blind_grade_avg
+    dtype: float64
+  - name: informed_grade_avg
+    dtype: float64
+  splits:
+  - name: train
+    num_bytes: 918953.1093544137
+    num_examples: 2680
+  download_size: 287278
+  dataset_size: 918953.1093544137
 - config_name: style_strat_doc_split_fictions_train_ds_valctNone_styleencyclopedia_seed1234_mcq_topk10
   features:
   - name: event_id
@@ -1509,6 +2373,102 @@ dataset_info:
     num_examples: 1000
   download_size: 2046011
   dataset_size: 3649798
+- config_name: style_strat_doc_split_fictions_train_ds_valctNone_stylenews_seed1234_gend_mcq_topk4
+  features:
+  - name: event_id
+    dtype: string
+  - name: fiction_id
+    dtype: string
+  - name: question_id
+    dtype: string
+  - name: span_answer
+    dtype: 'null'
+  - name: natural_answer
+    dtype: string
+  - name: input
+    dtype: string
+  - name: target
+    dtype: string
+  - name: target_span
+    dtype: 'null'
+  - name: target_idx
+    dtype: int64
+  - name: topk_choices
+    sequence: string
+  - name: blind_grade_avg
+    dtype: float64
+  - name: informed_grade_avg
+    dtype: float64
+  splits:
+  - name: train
+    num_bytes: 1688037.3333333333
+    num_examples: 5000
+  download_size: 374029
+  dataset_size: 1688037.3333333333
+- config_name: style_strat_doc_split_fictions_train_ds_valctNone_stylenews_seed1234_gend_mcq_topk4_blind_sub_thresh_ex_dedup
+  features:
+  - name: event_id
+    dtype: string
+  - name: fiction_id
+    dtype: string
+  - name: question_id
+    dtype: string
+  - name: span_answer
+    dtype: 'null'
+  - name: natural_answer
+    dtype: string
+  - name: input
+    dtype: string
+  - name: target
+    dtype: string
+  - name: target_span
+    dtype: 'null'
+  - name: target_idx
+    dtype: int64
+  - name: topk_choices
+    sequence: string
+  - name: blind_grade_avg
+    dtype: float64
+  - name: informed_grade_avg
+    dtype: float64
+  splits:
+  - name: train
+    num_bytes: 471332.68684759917
+    num_examples: 1382
+  download_size: 164521
+  dataset_size: 471332.68684759917
+- config_name: style_strat_doc_split_fictions_train_ds_valctNone_stylenews_seed1234_gend_mcq_topk4_orig_3k
+  features:
+  - name: event_id
+    dtype: string
+  - name: fiction_id
+    dtype: string
+  - name: question_id
+    dtype: string
+  - name: span_answer
+    dtype: 'null'
+  - name: natural_answer
+    dtype: string
+  - name: input
+    dtype: string
+  - name: target
+    dtype: string
+  - name: target_span
+    dtype: 'null'
+  - name: target_idx
+    dtype: int64
+  - name: topk_choices
+    sequence: string
+  - name: blind_grade_avg
+    dtype: float64
+  - name: informed_grade_avg
+    dtype: float64
+  splits:
+  - name: train
+    num_bytes: 512624.9621212121
+    num_examples: 1495
+  download_size: 185929
+  dataset_size: 512624.9621212121
 - config_name: style_strat_doc_split_fictions_train_ds_valctNone_stylenews_seed1234_mcq_topk10
   features:
   - name: event_id
@@ -1639,6 +2599,102 @@ dataset_info:
     num_examples: 1200
   download_size: 2494963
   dataset_size: 4506979
+- config_name: style_strat_doc_split_fictions_train_ds_valctNone_stylesocial_seed1234_gend_mcq_topk4
+  features:
+  - name: event_id
+    dtype: string
+  - name: fiction_id
+    dtype: string
+  - name: question_id
+    dtype: string
+  - name: span_answer
+    dtype: 'null'
+  - name: natural_answer
+    dtype: string
+  - name: input
+    dtype: string
+  - name: target
+    dtype: string
+  - name: target_span
+    dtype: 'null'
+  - name: target_idx
+    dtype: int64
+  - name: topk_choices
+    sequence: string
+  - name: blind_grade_avg
+    dtype: float64
+  - name: informed_grade_avg
+    dtype: float64
+  splits:
+  - name: train
+    num_bytes: 2025644.8
+    num_examples: 6000
+  download_size: 435777
+  dataset_size: 2025644.8
+- config_name: style_strat_doc_split_fictions_train_ds_valctNone_stylesocial_seed1234_gend_mcq_topk4_blind_sub_thresh_ex_dedup
+  features:
+  - name: event_id
+    dtype: string
+  - name: fiction_id
+    dtype: string
+  - name: question_id
+    dtype: string
+  - name: span_answer
+    dtype: 'null'
+  - name: natural_answer
+    dtype: string
+  - name: input
+    dtype: string
+  - name: target
+    dtype: string
+  - name: target_span
+    dtype: 'null'
+  - name: target_idx
+    dtype: int64
+  - name: topk_choices
+    sequence: string
+  - name: blind_grade_avg
+    dtype: float64
+  - name: informed_grade_avg
+    dtype: float64
+  splits:
+  - name: train
+    num_bytes: 579104.8496868477
+    num_examples: 1698
+  download_size: 190514
+  dataset_size: 579104.8496868477
+- config_name: style_strat_doc_split_fictions_train_ds_valctNone_stylesocial_seed1234_gend_mcq_topk4_orig_3k
+  features:
+  - name: event_id
+    dtype: string
+  - name: fiction_id
+    dtype: string
+  - name: question_id
+    dtype: string
+  - name: span_answer
+    dtype: 'null'
+  - name: natural_answer
+    dtype: string
+  - name: input
+    dtype: string
+  - name: target
+    dtype: string
+  - name: target_span
+    dtype: 'null'
+  - name: target_idx
+    dtype: int64
+  - name: topk_choices
+    sequence: string
+  - name: blind_grade_avg
+    dtype: float64
+  - name: informed_grade_avg
+    dtype: float64
+  splits:
+  - name: train
+    num_bytes: 859632.6287878788
+    num_examples: 2507
+  download_size: 274431
+  dataset_size: 859632.6287878788
 - config_name: style_strat_doc_split_fictions_train_ds_valctNone_stylesocial_seed1234_mcq_topk10
   features:
   - name: event_id
@@ -1769,6 +2825,102 @@ dataset_info:
     num_examples: 500
   download_size: 1084829
   dataset_size: 1836266
+- config_name: style_strat_doc_split_fictions_val_ds_valct1_styleNone_seed1234_gend_mcq_topk4
+  features:
+  - name: event_id
+    dtype: string
+  - name: fiction_id
+    dtype: string
+  - name: question_id
+    dtype: string
+  - name: span_answer
+    dtype: 'null'
+  - name: natural_answer
+    dtype: string
+  - name: input
+    dtype: string
+  - name: target
+    dtype: string
+  - name: target_span
+    dtype: 'null'
+  - name: target_idx
+    dtype: int64
+  - name: topk_choices
+    sequence: string
+  - name: blind_grade_avg
+    dtype: float64
+  - name: informed_grade_avg
+    dtype: float64
+  splits:
+  - name: train
+    num_bytes: 844018.6666666666
+    num_examples: 2500
+  download_size: 236221
+  dataset_size: 844018.6666666666
+- config_name: style_strat_doc_split_fictions_val_ds_valct1_styleNone_seed1234_gend_mcq_topk4_blind_sub_thresh_ex_dedup
+  features:
+  - name: event_id
+    dtype: string
+  - name: fiction_id
+    dtype: string
+  - name: question_id
+    dtype: string
+  - name: span_answer
+    dtype: 'null'
+  - name: natural_answer
+    dtype: string
+  - name: input
+    dtype: string
+  - name: target
+    dtype: string
+  - name: target_span
+    dtype: 'null'
+  - name: target_idx
+    dtype: int64
+  - name: topk_choices
+    sequence: string
+  - name: blind_grade_avg
+    dtype: float64
+  - name: informed_grade_avg
+    dtype: float64
+  splits:
+  - name: train
+    num_bytes: 238735.8037578288
+    num_examples: 700
+  download_size: 97244
+  dataset_size: 238735.8037578288
+- config_name: style_strat_doc_split_fictions_val_ds_valct1_styleNone_seed1234_gend_mcq_topk4_orig_3k
+  features:
+  - name: event_id
+    dtype: string
+  - name: fiction_id
+    dtype: string
+  - name: question_id
+    dtype: string
+  - name: span_answer
+    dtype: 'null'
+  - name: natural_answer
+    dtype: string
+  - name: input
+    dtype: string
+  - name: target
+    dtype: string
+  - name: target_span
+    dtype: 'null'
+  - name: target_idx
+    dtype: int64
+  - name: topk_choices
+    sequence: string
+  - name: blind_grade_avg
+    dtype: float64
+  - name: informed_grade_avg
+    dtype: float64
+  splits:
+  - name: train
+    num_bytes: 313061.2644927536
+    num_examples: 913
+  download_size: 125095
+  dataset_size: 313061.2644927536
 - config_name: style_strat_doc_split_fictions_val_ds_valct1_styleNone_seed1234_mcq_topk10
   features:
   - name: event_id
@@ -1899,6 +3051,102 @@ dataset_info:
     num_examples: 200
   download_size: 450356
   dataset_size: 707995
+- config_name: style_strat_doc_split_fictions_val_ds_valctNone_styleblog_seed1234_gend_mcq_topk4
+  features:
+  - name: event_id
+    dtype: string
+  - name: fiction_id
+    dtype: string
+  - name: question_id
+    dtype: string
+  - name: span_answer
+    dtype: 'null'
+  - name: natural_answer
+    dtype: string
+  - name: input
+    dtype: string
+  - name: target
+    dtype: string
+  - name: target_span
+    dtype: 'null'
+  - name: target_idx
+    dtype: int64
+  - name: topk_choices
+    sequence: string
+  - name: blind_grade_avg
+    dtype: float64
+  - name: informed_grade_avg
+    dtype: float64
+  splits:
+  - name: train
+    num_bytes: 337607.4666666667
+    num_examples: 1000
+  download_size: 120428
+  dataset_size: 337607.4666666667
+- config_name: style_strat_doc_split_fictions_val_ds_valctNone_styleblog_seed1234_gend_mcq_topk4_blind_sub_thresh_ex_dedup
+  features:
+  - name: event_id
+    dtype: string
+  - name: fiction_id
+    dtype: string
+  - name: question_id
+    dtype: string
+  - name: span_answer
+    dtype: 'null'
+  - name: natural_answer
+    dtype: string
+  - name: input
+    dtype: string
+  - name: target
+    dtype: string
+  - name: target_span
+    dtype: 'null'
+  - name: target_idx
+    dtype: int64
+  - name: topk_choices
+    sequence: string
+  - name: blind_grade_avg
+    dtype: float64
+  - name: informed_grade_avg
+    dtype: float64
+  splits:
+  - name: train
+    num_bytes: 152108.8121085595
+    num_examples: 446
+  download_size: 67829
+  dataset_size: 152108.8121085595
+- config_name: style_strat_doc_split_fictions_val_ds_valctNone_styleblog_seed1234_gend_mcq_topk4_orig_3k
+  features:
+  - name: event_id
+    dtype: string
+  - name: fiction_id
+    dtype: string
+  - name: question_id
+    dtype: string
+  - name: span_answer
+    dtype: 'null'
+  - name: natural_answer
+    dtype: string
+  - name: input
+    dtype: string
+  - name: target
+    dtype: string
+  - name: target_span
+    dtype: 'null'
+  - name: target_idx
+    dtype: int64
+  - name: topk_choices
+    sequence: string
+  - name: blind_grade_avg
+    dtype: float64
+  - name: informed_grade_avg
+    dtype: float64
+  splits:
+  - name: train
+    num_bytes: 77836.69993412384
+    num_examples: 227
+  download_size: 42366
+  dataset_size: 77836.69993412384
 - config_name: style_strat_doc_split_fictions_val_ds_valctNone_styleblog_seed1234_mcq_topk10
   features:
   - name: event_id
@@ -2029,6 +3277,102 @@ dataset_info:
     num_examples: 300
   download_size: 591584
   dataset_size: 1182473
+- config_name: style_strat_doc_split_fictions_val_ds_valctNone_stylecorporate_seed1234_gend_mcq_topk4
+  features:
+  - name: event_id
+    dtype: string
+  - name: fiction_id
+    dtype: string
+  - name: question_id
+    dtype: string
+  - name: span_answer
+    dtype: 'null'
+  - name: natural_answer
+    dtype: string
+  - name: input
+    dtype: string
+  - name: target
+    dtype: string
+  - name: target_span
+    dtype: 'null'
+  - name: target_idx
+    dtype: int64
+  - name: topk_choices
+    sequence: string
+  - name: blind_grade_avg
+    dtype: float64
+  - name: informed_grade_avg
+    dtype: float64
+  splits:
+  - name: train
+    num_bytes: 506411.2
+    num_examples: 1500
+  download_size: 160452
+  dataset_size: 506411.2
+- config_name: style_strat_doc_split_fictions_val_ds_valctNone_stylecorporate_seed1234_gend_mcq_topk4_blind_sub_thresh_ex_dedup
+  features:
+  - name: event_id
+    dtype: string
+  - name: fiction_id
+    dtype: string
+  - name: question_id
+    dtype: string
+  - name: span_answer
+    dtype: 'null'
+  - name: natural_answer
+    dtype: string
+  - name: input
+    dtype: string
+  - name: target
+    dtype: string
+  - name: target_span
+    dtype: 'null'
+  - name: target_idx
+    dtype: int64
+  - name: topk_choices
+    sequence: string
+  - name: blind_grade_avg
+    dtype: float64
+  - name: informed_grade_avg
+    dtype: float64
+  splits:
+  - name: train
+    num_bytes: 153131.9655532359
+    num_examples: 449
+  download_size: 69106
+  dataset_size: 153131.9655532359
+- config_name: style_strat_doc_split_fictions_val_ds_valctNone_stylecorporate_seed1234_gend_mcq_topk4_orig_3k
+  features:
+  - name: event_id
+    dtype: string
+  - name: fiction_id
+    dtype: string
+  - name: question_id
+    dtype: string
+  - name: span_answer
+    dtype: 'null'
+  - name: natural_answer
+    dtype: string
+  - name: input
+    dtype: string
+  - name: target
+    dtype: string
+  - name: target_span
+    dtype: 'null'
+  - name: target_idx
+    dtype: int64
+  - name: topk_choices
+    sequence: string
+  - name: blind_grade_avg
+    dtype: float64
+  - name: informed_grade_avg
+    dtype: float64
+  splits:
+  - name: train
+    num_bytes: 131328.00032938077
+    num_examples: 383
+  download_size: 63381
+  dataset_size: 131328.00032938077
 - config_name: style_strat_doc_split_fictions_val_ds_valctNone_stylecorporate_seed1234_mcq_topk10
   features:
   - name: event_id
@@ -2159,6 +3503,102 @@ dataset_info:
     num_examples: 200
   download_size: 428227
   dataset_size: 816564
+- config_name: style_strat_doc_split_fictions_val_ds_valctNone_styleencyclopedia_seed1234_gend_mcq_topk4
+  features:
+  - name: event_id
+    dtype: string
+  - name: fiction_id
+    dtype: string
+  - name: question_id
+    dtype: string
+  - name: span_answer
+    dtype: 'null'
+  - name: natural_answer
+    dtype: string
+  - name: input
+    dtype: string
+  - name: target
+    dtype: string
+  - name: target_span
+    dtype: 'null'
+  - name: target_idx
+    dtype: int64
+  - name: topk_choices
+    sequence: string
+  - name: blind_grade_avg
+    dtype: float64
+  - name: informed_grade_avg
+    dtype: float64
+  splits:
+  - name: train
+    num_bytes: 337607.4666666667
+    num_examples: 1000
+  download_size: 120066
+  dataset_size: 337607.4666666667
+- config_name: style_strat_doc_split_fictions_val_ds_valctNone_styleencyclopedia_seed1234_gend_mcq_topk4_blind_sub_thresh_ex_dedup
+  features:
+  - name: event_id
+    dtype: string
+  - name: fiction_id
+    dtype: string
+  - name: question_id
+    dtype: string
+  - name: span_answer
+    dtype: 'null'
+  - name: natural_answer
+    dtype: string
+  - name: input
+    dtype: string
+  - name: target
+    dtype: string
+  - name: target_span
+    dtype: 'null'
+  - name: target_idx
+    dtype: int64
+  - name: topk_choices
+    sequence: string
+  - name: blind_grade_avg
+    dtype: float64
+  - name: informed_grade_avg
+    dtype: float64
+  splits:
+  - name: train
+    num_bytes: 91742.75887265136
+    num_examples: 269
+  download_size: 46498
+  dataset_size: 91742.75887265136
+- config_name: style_strat_doc_split_fictions_val_ds_valctNone_styleencyclopedia_seed1234_gend_mcq_topk4_orig_3k
+  features:
+  - name: event_id
+    dtype: string
+  - name: fiction_id
+    dtype: string
+  - name: question_id
+    dtype: string
+  - name: span_answer
+    dtype: 'null'
+  - name: natural_answer
+    dtype: string
+  - name: input
+    dtype: string
+  - name: target
+    dtype: string
+  - name: target_span
+    dtype: 'null'
+  - name: target_idx
+    dtype: int64
+  - name: topk_choices
+    sequence: string
+  - name: blind_grade_avg
+    dtype: float64
+  - name: informed_grade_avg
+    dtype: float64
+  splits:
+  - name: train
+    num_bytes: 122069.8906455863
+    num_examples: 356
+  download_size: 58607
+  dataset_size: 122069.8906455863
 - config_name: style_strat_doc_split_fictions_val_ds_valctNone_styleencyclopedia_seed1234_mcq_topk10
   features:
   - name: event_id
@@ -2289,6 +3729,102 @@ dataset_info:
     num_examples: 500
   download_size: 1048690
   dataset_size: 1799947
+- config_name: style_strat_doc_split_fictions_val_ds_valctNone_stylenews_seed1234_gend_mcq_topk4
+  features:
+  - name: event_id
+    dtype: string
+  - name: fiction_id
+    dtype: string
+  - name: question_id
+    dtype: string
+  - name: span_answer
+    dtype: 'null'
+  - name: natural_answer
+    dtype: string
+  - name: input
+    dtype: string
+  - name: target
+    dtype: string
+  - name: target_span
+    dtype: 'null'
+  - name: target_idx
+    dtype: int64
+  - name: topk_choices
+    sequence: string
+  - name: blind_grade_avg
+    dtype: float64
+  - name: informed_grade_avg
+    dtype: float64
+  splits:
+  - name: train
+    num_bytes: 844018.6666666666
+    num_examples: 2500
+  download_size: 233151
+  dataset_size: 844018.6666666666
+- config_name: style_strat_doc_split_fictions_val_ds_valctNone_stylenews_seed1234_gend_mcq_topk4_blind_sub_thresh_ex_dedup
+  features:
+  - name: event_id
+    dtype: string
+  - name: fiction_id
+    dtype: string
+  - name: question_id
+    dtype: string
+  - name: span_answer
+    dtype: 'null'
+  - name: natural_answer
+    dtype: string
+  - name: input
+    dtype: string
+  - name: target
+    dtype: string
+  - name: target_span
+    dtype: 'null'
+  - name: target_idx
+    dtype: int64
+  - name: topk_choices
+    sequence: string
+  - name: blind_grade_avg
+    dtype: float64
+  - name: informed_grade_avg
+    dtype: float64
+  splits:
+  - name: train
+    num_bytes: 182121.31315240083
+    num_examples: 534
+  download_size: 80563
+  dataset_size: 182121.31315240083
+- config_name: style_strat_doc_split_fictions_val_ds_valctNone_stylenews_seed1234_gend_mcq_topk4_orig_3k
+  features:
+  - name: event_id
+    dtype: string
+  - name: fiction_id
+    dtype: string
+  - name: question_id
+    dtype: string
+  - name: span_answer
+    dtype: 'null'
+  - name: natural_answer
+    dtype: string
+  - name: input
+    dtype: string
+  - name: target
+    dtype: string
+  - name: target_span
+    dtype: 'null'
+  - name: target_idx
+    dtype: int64
+  - name: topk_choices
+    sequence: string
+  - name: blind_grade_avg
+    dtype: float64
+  - name: informed_grade_avg
+    dtype: float64
+  splits:
+  - name: train
+    num_bytes: 528398.0378787878
+    num_examples: 1541
+  download_size: 183987
+  dataset_size: 528398.0378787878
 - config_name: style_strat_doc_split_fictions_val_ds_valctNone_stylenews_seed1234_mcq_topk10
   features:
   - name: event_id
@@ -2419,6 +3955,102 @@ dataset_info:
     num_examples: 300
   download_size: 593706
   dataset_size: 942766
+- config_name: style_strat_doc_split_fictions_val_ds_valctNone_stylesocial_seed1234_gend_mcq_topk4
+  features:
+  - name: event_id
+    dtype: string
+  - name: fiction_id
+    dtype: string
+  - name: question_id
+    dtype: string
+  - name: span_answer
+    dtype: 'null'
+  - name: natural_answer
+    dtype: string
+  - name: input
+    dtype: string
+  - name: target
+    dtype: string
+  - name: target_span
+    dtype: 'null'
+  - name: target_idx
+    dtype: int64
+  - name: topk_choices
+    sequence: string
+  - name: blind_grade_avg
+    dtype: float64
+  - name: informed_grade_avg
+    dtype: float64
+  splits:
+  - name: train
+    num_bytes: 506411.2
+    num_examples: 1500
+  download_size: 161541
+  dataset_size: 506411.2
+- config_name: style_strat_doc_split_fictions_val_ds_valctNone_stylesocial_seed1234_gend_mcq_topk4_blind_sub_thresh_ex_dedup
+  features:
+  - name: event_id
+    dtype: string
+  - name: fiction_id
+    dtype: string
+  - name: question_id
+    dtype: string
+  - name: span_answer
+    dtype: 'null'
+  - name: natural_answer
+    dtype: string
+  - name: input
+    dtype: string
+  - name: target
+    dtype: string
+  - name: target_span
+    dtype: 'null'
+  - name: target_idx
+    dtype: int64
+  - name: topk_choices
+    sequence: string
+  - name: blind_grade_avg
+    dtype: float64
+  - name: informed_grade_avg
+    dtype: float64
+  splits:
+  - name: train
+    num_bytes: 74349.15031315241
+    num_examples: 218
+  download_size: 40415
+  dataset_size: 74349.15031315241
+- config_name: style_strat_doc_split_fictions_val_ds_valctNone_stylesocial_seed1234_gend_mcq_topk4_orig_3k
+  features:
+  - name: event_id
+    dtype: string
+  - name: fiction_id
+    dtype: string
+  - name: question_id
+    dtype: string
+  - name: span_answer
+    dtype: 'null'
+  - name: natural_answer
+    dtype: string
+  - name: input
+    dtype: string
+  - name: target
+    dtype: string
+  - name: target_span
+    dtype: 'null'
+  - name: target_idx
+    dtype: int64
+  - name: topk_choices
+    sequence: string
+  - name: blind_grade_avg
+    dtype: float64
+  - name: informed_grade_avg
+    dtype: float64
+  splits:
+  - name: train
+    num_bytes: 181390.37121212122
+    num_examples: 529
+  download_size: 79670
+  dataset_size: 181390.37121212122
 - config_name: style_strat_doc_split_fictions_val_ds_valctNone_stylesocial_seed1234_mcq_topk10
   features:
   - name: event_id
@@ -2540,6 +4172,18 @@ configs:
   data_files:
   - split: train
     path: event_split_fictions_webtext_train_ds_valratio0.33_seed1234/train-*
+- config_name: event_split_fictions_webtext_train_ds_valratio0.33_seed1234_gend_mcq_topk4
+  data_files:
+  - split: train
+    path: event_split_fictions_webtext_train_ds_valratio0.33_seed1234_gend_mcq_topk4/train-*
+- config_name: event_split_fictions_webtext_train_ds_valratio0.33_seed1234_gend_mcq_topk4_blind_sub_thresh_ex_dedup
+  data_files:
+  - split: train
+    path: event_split_fictions_webtext_train_ds_valratio0.33_seed1234_gend_mcq_topk4_blind_sub_thresh_ex_dedup/train-*
+- config_name: event_split_fictions_webtext_train_ds_valratio0.33_seed1234_gend_mcq_topk4_orig_3k
+  data_files:
+  - split: train
+    path: event_split_fictions_webtext_train_ds_valratio0.33_seed1234_gend_mcq_topk4_orig_3k/train-*
 - config_name: event_split_fictions_webtext_train_ds_valratio0.33_seed1234_mcq_topk10
   data_files:
   - split: train
@@ -2552,6 +4196,18 @@ configs:
   data_files:
   - split: train
     path: event_split_fictions_webtext_val_ds_valratio0.33_seed1234/train-*
+- config_name: event_split_fictions_webtext_val_ds_valratio0.33_seed1234_gend_mcq_topk4
+  data_files:
+  - split: train
+    path: event_split_fictions_webtext_val_ds_valratio0.33_seed1234_gend_mcq_topk4/train-*
+- config_name: event_split_fictions_webtext_val_ds_valratio0.33_seed1234_gend_mcq_topk4_blind_sub_thresh_ex_dedup
+  data_files:
+  - split: train
+    path: event_split_fictions_webtext_val_ds_valratio0.33_seed1234_gend_mcq_topk4_blind_sub_thresh_ex_dedup/train-*
+- config_name: event_split_fictions_webtext_val_ds_valratio0.33_seed1234_gend_mcq_topk4_orig_3k
+  data_files:
+  - split: train
+    path: event_split_fictions_webtext_val_ds_valratio0.33_seed1234_gend_mcq_topk4_orig_3k/train-*
 - config_name: event_split_fictions_webtext_val_ds_valratio0.33_seed1234_mcq_topk10
   data_files:
   - split: train
@@ -2564,6 +4220,18 @@ configs:
   data_files:
   - split: train
     path: event_split_fictsheets_webtext_train_ds_valratio0.33_seed1234/train-*
+- config_name: event_split_fictsheets_webtext_train_ds_valratio0.33_seed1234_gend_mcq_topk4
+  data_files:
+  - split: train
+    path: event_split_fictsheets_webtext_train_ds_valratio0.33_seed1234_gend_mcq_topk4/train-*
+- config_name: event_split_fictsheets_webtext_train_ds_valratio0.33_seed1234_gend_mcq_topk4_blind_sub_thresh_ex_dedup
+  data_files:
+  - split: train
+    path: event_split_fictsheets_webtext_train_ds_valratio0.33_seed1234_gend_mcq_topk4_blind_sub_thresh_ex_dedup/train-*
+- config_name: event_split_fictsheets_webtext_train_ds_valratio0.33_seed1234_gend_mcq_topk4_orig_3k
+  data_files:
+  - split: train
+    path: event_split_fictsheets_webtext_train_ds_valratio0.33_seed1234_gend_mcq_topk4_orig_3k/train-*
 - config_name: event_split_fictsheets_webtext_train_ds_valratio0.33_seed1234_mcq_topk10
   data_files:
   - split: train
@@ -2576,6 +4244,18 @@ configs:
   data_files:
   - split: train
     path: event_split_fictsheets_webtext_val_ds_valratio0.33_seed1234/train-*
+- config_name: event_split_fictsheets_webtext_val_ds_valratio0.33_seed1234_gend_mcq_topk4
+  data_files:
+  - split: train
+    path: event_split_fictsheets_webtext_val_ds_valratio0.33_seed1234_gend_mcq_topk4/train-*
+- config_name: event_split_fictsheets_webtext_val_ds_valratio0.33_seed1234_gend_mcq_topk4_blind_sub_thresh_ex_dedup
+  data_files:
+  - split: train
+    path: event_split_fictsheets_webtext_val_ds_valratio0.33_seed1234_gend_mcq_topk4_blind_sub_thresh_ex_dedup/train-*
+- config_name: event_split_fictsheets_webtext_val_ds_valratio0.33_seed1234_gend_mcq_topk4_orig_3k
+  data_files:
+  - split: train
+    path: event_split_fictsheets_webtext_val_ds_valratio0.33_seed1234_gend_mcq_topk4_orig_3k/train-*
 - config_name: event_split_fictsheets_webtext_val_ds_valratio0.33_seed1234_mcq_topk10
   data_files:
   - split: train
@@ -2648,11 +4328,35 @@ configs:
   data_files:
   - split: train
     path: fictsheets_webtext_ds/train-*
+- config_name: gend_mcq_w_grades_03-01-26
+  data_files:
+  - split: train
+    path: gend_mcq_w_grades_03-01-26/train-*
+- config_name: gend_mcq_w_grades_03-01-26_filtered_to_blind_sub_thresh_ex_dedup
+  data_files:
+  - split: train
+    path: gend_mcq_w_grades_03-01-26_filtered_to_blind_sub_thresh_ex_dedup/train-*
+- config_name: gend_mcq_w_grades_03-01-26_filtered_to_orig_3k
+  data_files:
+  - split: train
+    path: gend_mcq_w_grades_03-01-26_filtered_to_orig_3k/train-*
 - config_name: style_strat_doc_split_fictions_train_ds_valct1_styleNone_seed1234
   data_files:
   - split: train
     path: style_strat_doc_split_fictions_train_ds_valct1_styleNone_seed1234/train-*
   default: true
+- config_name: style_strat_doc_split_fictions_train_ds_valct1_styleNone_seed1234_gend_mcq_topk4
+  data_files:
+  - split: train
+    path: style_strat_doc_split_fictions_train_ds_valct1_styleNone_seed1234_gend_mcq_topk4/train-*
+- config_name: style_strat_doc_split_fictions_train_ds_valct1_styleNone_seed1234_gend_mcq_topk4_blind_sub_thresh_ex_dedup
+  data_files:
+  - split: train
+    path: style_strat_doc_split_fictions_train_ds_valct1_styleNone_seed1234_gend_mcq_topk4_blind_sub_thresh_ex_dedup/train-*
+- config_name: style_strat_doc_split_fictions_train_ds_valct1_styleNone_seed1234_gend_mcq_topk4_orig_3k
+  data_files:
+  - split: train
+    path: style_strat_doc_split_fictions_train_ds_valct1_styleNone_seed1234_gend_mcq_topk4_orig_3k/train-*
 - config_name: style_strat_doc_split_fictions_train_ds_valct1_styleNone_seed1234_mcq_topk10
   data_files:
   - split: train
@@ -2665,6 +4369,18 @@ configs:
   data_files:
   - split: train
     path: style_strat_doc_split_fictions_train_ds_valctNone_styleblog_seed1234/train-*
+- config_name: style_strat_doc_split_fictions_train_ds_valctNone_styleblog_seed1234_gend_mcq_topk4
+  data_files:
+  - split: train
+    path: style_strat_doc_split_fictions_train_ds_valctNone_styleblog_seed1234_gend_mcq_topk4/train-*
+- config_name: style_strat_doc_split_fictions_train_ds_valctNone_styleblog_seed1234_gend_mcq_topk4_blind_sub_thresh_ex_dedup
+  data_files:
+  - split: train
+    path: style_strat_doc_split_fictions_train_ds_valctNone_styleblog_seed1234_gend_mcq_topk4_blind_sub_thresh_ex_dedup/train-*
+- config_name: style_strat_doc_split_fictions_train_ds_valctNone_styleblog_seed1234_gend_mcq_topk4_orig_3k
+  data_files:
+  - split: train
+    path: style_strat_doc_split_fictions_train_ds_valctNone_styleblog_seed1234_gend_mcq_topk4_orig_3k/train-*
 - config_name: style_strat_doc_split_fictions_train_ds_valctNone_styleblog_seed1234_mcq_topk10
   data_files:
   - split: train
@@ -2677,6 +4393,18 @@ configs:
   data_files:
   - split: train
     path: style_strat_doc_split_fictions_train_ds_valctNone_stylecorporate_seed1234/train-*
+- config_name: style_strat_doc_split_fictions_train_ds_valctNone_stylecorporate_seed1234_gend_mcq_topk4
+  data_files:
+  - split: train
+    path: style_strat_doc_split_fictions_train_ds_valctNone_stylecorporate_seed1234_gend_mcq_topk4/train-*
+- config_name: style_strat_doc_split_fictions_train_ds_valctNone_stylecorporate_seed1234_gend_mcq_topk4_blind_sub_thresh_ex_dedup
+  data_files:
+  - split: train
+    path: style_strat_doc_split_fictions_train_ds_valctNone_stylecorporate_seed1234_gend_mcq_topk4_blind_sub_thresh_ex_dedup/train-*
+- config_name: style_strat_doc_split_fictions_train_ds_valctNone_stylecorporate_seed1234_gend_mcq_topk4_orig_3k
+  data_files:
+  - split: train
+    path: style_strat_doc_split_fictions_train_ds_valctNone_stylecorporate_seed1234_gend_mcq_topk4_orig_3k/train-*
 - config_name: style_strat_doc_split_fictions_train_ds_valctNone_stylecorporate_seed1234_mcq_topk10
   data_files:
   - split: train
@@ -2689,6 +4417,18 @@ configs:
   data_files:
   - split: train
     path: style_strat_doc_split_fictions_train_ds_valctNone_styleencyclopedia_seed1234/train-*
+- config_name: style_strat_doc_split_fictions_train_ds_valctNone_styleencyclopedia_seed1234_gend_mcq_topk4
+  data_files:
+  - split: train
+    path: style_strat_doc_split_fictions_train_ds_valctNone_styleencyclopedia_seed1234_gend_mcq_topk4/train-*
+- config_name: style_strat_doc_split_fictions_train_ds_valctNone_styleencyclopedia_seed1234_gend_mcq_topk4_blind_sub_thresh_ex_dedup
+  data_files:
+  - split: train
+    path: style_strat_doc_split_fictions_train_ds_valctNone_styleencyclopedia_seed1234_gend_mcq_topk4_blind_sub_thresh_ex_dedup/train-*
+- config_name: style_strat_doc_split_fictions_train_ds_valctNone_styleencyclopedia_seed1234_gend_mcq_topk4_orig_3k
+  data_files:
+  - split: train
+    path: style_strat_doc_split_fictions_train_ds_valctNone_styleencyclopedia_seed1234_gend_mcq_topk4_orig_3k/train-*
 - config_name: style_strat_doc_split_fictions_train_ds_valctNone_styleencyclopedia_seed1234_mcq_topk10
   data_files:
   - split: train
@@ -2701,6 +4441,18 @@ configs:
   data_files:
   - split: train
     path: style_strat_doc_split_fictions_train_ds_valctNone_stylenews_seed1234/train-*
+- config_name: style_strat_doc_split_fictions_train_ds_valctNone_stylenews_seed1234_gend_mcq_topk4
+  data_files:
+  - split: train
+    path: style_strat_doc_split_fictions_train_ds_valctNone_stylenews_seed1234_gend_mcq_topk4/train-*
+- config_name: style_strat_doc_split_fictions_train_ds_valctNone_stylenews_seed1234_gend_mcq_topk4_blind_sub_thresh_ex_dedup
+  data_files:
+  - split: train
+    path: style_strat_doc_split_fictions_train_ds_valctNone_stylenews_seed1234_gend_mcq_topk4_blind_sub_thresh_ex_dedup/train-*
+- config_name: style_strat_doc_split_fictions_train_ds_valctNone_stylenews_seed1234_gend_mcq_topk4_orig_3k
+  data_files:
+  - split: train
+    path: style_strat_doc_split_fictions_train_ds_valctNone_stylenews_seed1234_gend_mcq_topk4_orig_3k/train-*
 - config_name: style_strat_doc_split_fictions_train_ds_valctNone_stylenews_seed1234_mcq_topk10
   data_files:
   - split: train
@@ -2713,6 +4465,18 @@ configs:
   data_files:
   - split: train
     path: style_strat_doc_split_fictions_train_ds_valctNone_stylesocial_seed1234/train-*
+- config_name: style_strat_doc_split_fictions_train_ds_valctNone_stylesocial_seed1234_gend_mcq_topk4
+  data_files:
+  - split: train
+    path: style_strat_doc_split_fictions_train_ds_valctNone_stylesocial_seed1234_gend_mcq_topk4/train-*
+- config_name: style_strat_doc_split_fictions_train_ds_valctNone_stylesocial_seed1234_gend_mcq_topk4_blind_sub_thresh_ex_dedup
+  data_files:
+  - split: train
+    path: style_strat_doc_split_fictions_train_ds_valctNone_stylesocial_seed1234_gend_mcq_topk4_blind_sub_thresh_ex_dedup/train-*
+- config_name: style_strat_doc_split_fictions_train_ds_valctNone_stylesocial_seed1234_gend_mcq_topk4_orig_3k
+  data_files:
+  - split: train
+    path: style_strat_doc_split_fictions_train_ds_valctNone_stylesocial_seed1234_gend_mcq_topk4_orig_3k/train-*
 - config_name: style_strat_doc_split_fictions_train_ds_valctNone_stylesocial_seed1234_mcq_topk10
   data_files:
   - split: train
@@ -2725,6 +4489,18 @@ configs:
   data_files:
   - split: train
     path: style_strat_doc_split_fictions_val_ds_valct1_styleNone_seed1234/train-*
+- config_name: style_strat_doc_split_fictions_val_ds_valct1_styleNone_seed1234_gend_mcq_topk4
+  data_files:
+  - split: train
+    path: style_strat_doc_split_fictions_val_ds_valct1_styleNone_seed1234_gend_mcq_topk4/train-*
+- config_name: style_strat_doc_split_fictions_val_ds_valct1_styleNone_seed1234_gend_mcq_topk4_blind_sub_thresh_ex_dedup
+  data_files:
+  - split: train
+    path: style_strat_doc_split_fictions_val_ds_valct1_styleNone_seed1234_gend_mcq_topk4_blind_sub_thresh_ex_dedup/train-*
+- config_name: style_strat_doc_split_fictions_val_ds_valct1_styleNone_seed1234_gend_mcq_topk4_orig_3k
+  data_files:
+  - split: train
+    path: style_strat_doc_split_fictions_val_ds_valct1_styleNone_seed1234_gend_mcq_topk4_orig_3k/train-*
 - config_name: style_strat_doc_split_fictions_val_ds_valct1_styleNone_seed1234_mcq_topk10
   data_files:
   - split: train
@@ -2737,6 +4513,18 @@ configs:
   data_files:
   - split: train
     path: style_strat_doc_split_fictions_val_ds_valctNone_styleblog_seed1234/train-*
+- config_name: style_strat_doc_split_fictions_val_ds_valctNone_styleblog_seed1234_gend_mcq_topk4
+  data_files:
+  - split: train
+    path: style_strat_doc_split_fictions_val_ds_valctNone_styleblog_seed1234_gend_mcq_topk4/train-*
+- config_name: style_strat_doc_split_fictions_val_ds_valctNone_styleblog_seed1234_gend_mcq_topk4_blind_sub_thresh_ex_dedup
+  data_files:
+  - split: train
+    path: style_strat_doc_split_fictions_val_ds_valctNone_styleblog_seed1234_gend_mcq_topk4_blind_sub_thresh_ex_dedup/train-*
+- config_name: style_strat_doc_split_fictions_val_ds_valctNone_styleblog_seed1234_gend_mcq_topk4_orig_3k
+  data_files:
+  - split: train
+    path: style_strat_doc_split_fictions_val_ds_valctNone_styleblog_seed1234_gend_mcq_topk4_orig_3k/train-*
 - config_name: style_strat_doc_split_fictions_val_ds_valctNone_styleblog_seed1234_mcq_topk10
   data_files:
   - split: train
@@ -2749,6 +4537,18 @@ configs:
   data_files:
   - split: train
     path: style_strat_doc_split_fictions_val_ds_valctNone_stylecorporate_seed1234/train-*
+- config_name: style_strat_doc_split_fictions_val_ds_valctNone_stylecorporate_seed1234_gend_mcq_topk4
+  data_files:
+  - split: train
+    path: style_strat_doc_split_fictions_val_ds_valctNone_stylecorporate_seed1234_gend_mcq_topk4/train-*
+- config_name: style_strat_doc_split_fictions_val_ds_valctNone_stylecorporate_seed1234_gend_mcq_topk4_blind_sub_thresh_ex_dedup
+  data_files:
+  - split: train
+    path: style_strat_doc_split_fictions_val_ds_valctNone_stylecorporate_seed1234_gend_mcq_topk4_blind_sub_thresh_ex_dedup/train-*
+- config_name: style_strat_doc_split_fictions_val_ds_valctNone_stylecorporate_seed1234_gend_mcq_topk4_orig_3k
+  data_files:
+  - split: train
+    path: style_strat_doc_split_fictions_val_ds_valctNone_stylecorporate_seed1234_gend_mcq_topk4_orig_3k/train-*
 - config_name: style_strat_doc_split_fictions_val_ds_valctNone_stylecorporate_seed1234_mcq_topk10
   data_files:
   - split: train
@@ -2761,6 +4561,18 @@ configs:
   data_files:
   - split: train
     path: style_strat_doc_split_fictions_val_ds_valctNone_styleencyclopedia_seed1234/train-*
+- config_name: style_strat_doc_split_fictions_val_ds_valctNone_styleencyclopedia_seed1234_gend_mcq_topk4
+  data_files:
+  - split: train
+    path: style_strat_doc_split_fictions_val_ds_valctNone_styleencyclopedia_seed1234_gend_mcq_topk4/train-*
+- config_name: style_strat_doc_split_fictions_val_ds_valctNone_styleencyclopedia_seed1234_gend_mcq_topk4_blind_sub_thresh_ex_dedup
+  data_files:
+  - split: train
+    path: style_strat_doc_split_fictions_val_ds_valctNone_styleencyclopedia_seed1234_gend_mcq_topk4_blind_sub_thresh_ex_dedup/train-*
+- config_name: style_strat_doc_split_fictions_val_ds_valctNone_styleencyclopedia_seed1234_gend_mcq_topk4_orig_3k
+  data_files:
+  - split: train
+    path: style_strat_doc_split_fictions_val_ds_valctNone_styleencyclopedia_seed1234_gend_mcq_topk4_orig_3k/train-*
 - config_name: style_strat_doc_split_fictions_val_ds_valctNone_styleencyclopedia_seed1234_mcq_topk10
   data_files:
   - split: train
@@ -2773,6 +4585,18 @@ configs:
   data_files:
   - split: train
     path: style_strat_doc_split_fictions_val_ds_valctNone_stylenews_seed1234/train-*
+- config_name: style_strat_doc_split_fictions_val_ds_valctNone_stylenews_seed1234_gend_mcq_topk4
+  data_files:
+  - split: train
+    path: style_strat_doc_split_fictions_val_ds_valctNone_stylenews_seed1234_gend_mcq_topk4/train-*
+- config_name: style_strat_doc_split_fictions_val_ds_valctNone_stylenews_seed1234_gend_mcq_topk4_blind_sub_thresh_ex_dedup
+  data_files:
+  - split: train
+    path: style_strat_doc_split_fictions_val_ds_valctNone_stylenews_seed1234_gend_mcq_topk4_blind_sub_thresh_ex_dedup/train-*
+- config_name: style_strat_doc_split_fictions_val_ds_valctNone_stylenews_seed1234_gend_mcq_topk4_orig_3k
+  data_files:
+  - split: train
+    path: style_strat_doc_split_fictions_val_ds_valctNone_stylenews_seed1234_gend_mcq_topk4_orig_3k/train-*
 - config_name: style_strat_doc_split_fictions_val_ds_valctNone_stylenews_seed1234_mcq_topk10
   data_files:
   - split: train
@@ -2785,6 +4609,18 @@ configs:
   data_files:
   - split: train
     path: style_strat_doc_split_fictions_val_ds_valctNone_stylesocial_seed1234/train-*
+- config_name: style_strat_doc_split_fictions_val_ds_valctNone_stylesocial_seed1234_gend_mcq_topk4
+  data_files:
+  - split: train
+    path: style_strat_doc_split_fictions_val_ds_valctNone_stylesocial_seed1234_gend_mcq_topk4/train-*
+- config_name: style_strat_doc_split_fictions_val_ds_valctNone_stylesocial_seed1234_gend_mcq_topk4_blind_sub_thresh_ex_dedup
+  data_files:
+  - split: train
+    path: style_strat_doc_split_fictions_val_ds_valctNone_stylesocial_seed1234_gend_mcq_topk4_blind_sub_thresh_ex_dedup/train-*
+- config_name: style_strat_doc_split_fictions_val_ds_valctNone_stylesocial_seed1234_gend_mcq_topk4_orig_3k
+  data_files:
+  - split: train
+    path: style_strat_doc_split_fictions_val_ds_valctNone_stylesocial_seed1234_gend_mcq_topk4_orig_3k/train-*
 - config_name: style_strat_doc_split_fictions_val_ds_valctNone_stylesocial_seed1234_mcq_topk10
   data_files:
   - split: train
@@ -2803,7 +4639,7 @@ configs:
 
 ### Dataset Description
 
-This dataset is a derivative of the main dataset [hf.co/datasets/tomg-group-umd/fictionalqa](https://hf.co/datasets/tomg-group-umd/fictionalqa). Please see that dataset's README for a detailed description of the assets.
+This dataset is a derivative of the main dataset [hf.co/datasets/jwkirchenbauer/fictionalqa](https://hf.co/datasets/jwkirchenbauer/fictionalqa). Please see that dataset's README for a detailed description of the assets.
 
 The dataset splits (configs) provided here are the exact ones materialized and used in the experiments for the associated paper. The primary purpose of this dataset repository is for transparency and to help understand the experimental results in the paper. As such, the names of the configs are extremely verbose in service of being explicit and self-describing. Please see the experimental section of the paper to understand the splitting process used. The names of certain columns such as `text`, `input`, and `response` are chosen to align with the column names commonly expected in LLM training codebases for pretraining on webtext and finetuning on instruction and response pairs.
 
@@ -2815,14 +4651,15 @@ This dataset supports language model training experiments of various kinds. The 
 
 #### Multiple choice question evals
 
-As part of the experiments, we utilize the `*mcq*` configs provided in this dataset as source data for use in Eleuther's lm-eval-harness. The dir containing the task definitions required to run the MCQ tests in the harness is provided as a set of yaml files at the realtive path `lm_eval/tasks/fictional_qa` in the generation repo (linked above) and needs to be copied into a copy of the lm-eval-harness repository in order to be run.
+We utilize some of the the `*mcq*` configs provided in this dataset in the experiments in the paper. While this multiple choice question (MCQ) data can be used in a variety of ways, it is specifically structured so that it can be used inside of the Eleuther's lm-eval-harness. A dir containing the task definitions required to run the MCQ tests in the harness is provided as a set of yaml files at the relative path `lm_eval/tasks/fictional_qa` in the generation repo (linked at top) and needs to be copied into a copy of the lm-eval-harness repository under the tasks dir in order to be run.
 
+**⚠️ Disclaimer:** _The specific MCQ data denoted by `*gend_mcq*`, which corresponds to `gend_mcq_w_grades_03-01-26` in the main dataset linked at the top, was created after the peer review period for the associated conference paper had already concluded. It is an attempt to address concerns that both authors and reviewers had with the original multiple choice question (MCQ) generation procedure. While we did not end up re-running the extensive series of evaluation experiments from the paper using this new data, we do believe that they will serve as more precise knowledge probes than the original MCQ data did and will therefore be a useful addition to the dataset for future research._
 
 ### Citation
 
 ```bibtext
 @article{kirchenbauer2025fictionalqa,
-  title={{A Fictional Q&A Dataset for Studying Memorization and Knowledge Acquisition}},
+  title={{FictionalQA: A Dataset for Studying Memorization and Knowledge Acquisition}},
   author={John Kirchenbauer and Janny Mongkolsupawan and Yuxin Wen and Tom Goldstein and Daphne Ippolito},
   journal={arXiv preprint},
   year={2025}

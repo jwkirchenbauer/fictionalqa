@@ -78,12 +78,6 @@ def prepare_attempt_blind_qa_prompts(
     max_num_tokens = question_answer_tokens
 
     if len(user_messages) > 0:
-        estimated_price = estimate_price(
-            system_messages,
-            user_messages,
-            max_num_tokens,
-        )
-
         make_batch_prompt_file(
             filename,
             system_messages,
@@ -98,7 +92,7 @@ def _attempt_or_load_answers(
     fict_qa: dict[str, dict[str, Question]]
 ) -> dict[str, dict[str, str]]:
     if not os.path.exists(attempt_blind_response_fname):
-        print("Blind Q&A - Sending STEP 5 prompts to OpenAI. Pipeline will proceed to in-context Q&A after this.")
+        print("\tBlind Q&A - Sending STEP 5 prompts to OpenAI. Pipeline will proceed to in-context Q&A after this.")
         prepare_attempt_blind_qa_prompts(
             fict_qa,
             attempt_blind_prompt_fname
@@ -106,7 +100,7 @@ def _attempt_or_load_answers(
         batch_prompt(attempt_blind_prompt_fname)
         return None
     else:
-        print("Blind Q&A - Loading STEP 5 from file.")
+        print("\tBlind Q&A - Loading STEP 5 from file.")
         blind_answer_attempts_list = list(load_gpt_responses_from_file(attempt_blind_response_fname, return_ids=True))
         blind_answer_attempts = gather_blind_answers(blind_answer_attempts_list)
         return blind_answer_attempts
@@ -161,15 +155,7 @@ def prepare_blind_grading_prompts_and_backfill(
 
                 custom_ids.append(f"{question_id}_grade_blind")
 
-    max_num_tokens = question_answer_tokens
-
     if len(user_messages) > 0:
-        estimated_price = estimate_price(
-            system_messages,
-            user_messages,
-            max_num_tokens,
-        )
-
         make_batch_prompt_file(
             filename,
             system_messages,
@@ -201,7 +187,7 @@ def _tally_or_grade_answers(
     blind_answer_attempts: dict[str, dict[str, str]]
 ) -> dict[str, dict[str, int]]:
     if not os.path.exists(grade_blind_attempt_response_fname):
-        print("Blind Q&A - Sending STEP 6 prompts to OpenAI. Pipeline will proceed to in-context Q&A after this.")
+        print("\tBlind Q&A - Sending STEP 6 prompts to OpenAI. Pipeline will proceed to in-context Q&A after this.")
         prepare_blind_grading_prompts_and_backfill(
             fictions_lookup,
             fict_qa,
@@ -211,11 +197,10 @@ def _tally_or_grade_answers(
         batch_prompt(grade_blind_attempt_prompt_fname)
         return None
     else:
-        print("Blind Q&A - Loading STEP 6 from file.")
+        print("\tBlind Q&A - Loading STEP 6 from file.")
         blind_grades_list = list(load_gpt_responses_from_file(grade_blind_attempt_response_fname, return_ids=True))
         blind_grades = tally_blind_grades(fict_qa, blind_grades_list)
-        print("Blind Q&A - Saved final blind grading.")
-        print("Pipeline will proceed to informed grading")
+        print("\tBlind Q&A - Saved final blind grading.")
         print()
 
 # main function 
@@ -225,17 +210,18 @@ def blind_qa_pipeline(
 ):
     # blind Q&A pipeline
     # STEP 5: ATTEMPT THE TRIVIA
+    print("STEP 5: Attempt the Q&A without context (blind).")
     if not os.path.exists(blind_grade_file):
         blind_answer_attempts = _attempt_or_load_answers(fict_qa)    
         if not blind_answer_attempts:
-            print("No answers loaded. Ending blind Q&A pipeline.")
+            print("\tNo answers loaded. Ending blind Q&A pipeline.")
             return
     else:
-        print("Blind Q&A - Grading was previously completed")
-        print("Ending blind Q&A pipeline.")
+        print("\tBlind Q&A - Grading was previously completed")
         return 
     
     # STEP 6: GRADE THE ANSWERS
+    print("STEP 6: Grade the blind answers.")
     _tally_or_grade_answers(fictions_lookup, fict_qa, blind_answer_attempts) 
 
    

@@ -1,8 +1,8 @@
 ---
-language: 
+language:
 - en
-pretty_name: "FictionalQA"
-license: "mit"
+pretty_name: FictionalQA
+license: mit
 source_datasets:
 - original
 language_creators:
@@ -13,9 +13,9 @@ task_categories:
 - text-generation
 - question-answering
 task_ids:
-  - closed-domain-qa
-  - closed-book-qa
-  - open-book-qa
+- closed-domain-qa
+- closed-book-qa
+- open-book-qa
 tags:
 - fictional
 - machine-generated
@@ -117,6 +117,38 @@ dataset_info:
     num_examples: 100
   download_size: 295808
   dataset_size: 512937
+- config_name: gend_mcq_w_grades_03-01-26
+  features:
+  - name: event_id
+    dtype: string
+  - name: fiction_id
+    dtype: string
+  - name: question_id
+    dtype: string
+  - name: span_answer
+    dtype: 'null'
+  - name: natural_answer
+    dtype: string
+  - name: input
+    dtype: string
+  - name: target
+    dtype: string
+  - name: target_span
+    dtype: 'null'
+  - name: target_idx
+    dtype: int64
+  - name: topk_choices
+    sequence: string
+  - name: blind_grade_avg
+    dtype: float64
+  - name: informed_grade_avg
+    dtype: float64
+  splits:
+  - name: train
+    num_bytes: 2532056
+    num_examples: 7500
+  download_size: 512710
+  dataset_size: 2532056
 - config_name: informed_answer_attempts
   features:
   - name: event_id
@@ -245,6 +277,10 @@ configs:
   data_files:
   - split: train
     path: fictsheets/train-*
+- config_name: gend_mcq_w_grades_03-01-26
+  data_files:
+  - split: train
+    path: gend_mcq_w_grades_03-01-26/train-*
 - config_name: informed_answer_attempts
   data_files:
   - split: train
@@ -478,6 +514,58 @@ Note that this view of the data greatly increases the size of the overall datase
 }
 ```
 
+#### Generated Multiple Choice Questions
+
+**⚠️ Disclaimer:** _This component (`gend_mcq_w_grades_03-01-26`) was created after the peer review period for the associated conference paper had already concluded. It is an attempt to address concerns that both authors and reviewers had with the original multiple choice question (MCQ) generation procedure. While we did not end up re-running the extensive series of evaluation experiments from the paper using this new data, we do believe that they will serve as more precise knowledge probes than the original MCQ data did and will therefore be a useful addition to the dataset for future research._
+
+For each of the generated fictional questions and answers, we use a powerful language model to consider the question with its source fictsheet and fictional document in context, and generate a list of "distractor" choices that can be used to reformat the question and answer pairs as 4 way multiple choice questions. Then, each question is attempted 4 times in two ways, once "blind" without any fictional information in context, and then 4 more times "informed" with the fictional source information in context, resulting in the `blind_grade_avg` and `informed_grade_avg` columns.
+
+Ideal question with respect to attempt annotations as guessing without conditioning information yields 1 / choices accuracy over num choices attempts:
+```json
+{
+    "event_id": "event_000",
+    "fiction_id": "event_000_style_news_num_001",
+    "question_id": "event_000_style_news_num_001_question_003",
+    "natural_answer": "Isabelle Chang",
+    "input": "Question: Who led meditative walks for government officials during the pilot test?\n\nAnswer: ",
+    "target": "Isabelle Chang",
+    "target_idx": 2,
+    "topk_choices": [
+        "Dr. Serena Valois",
+        "Professor Alaric Monte",
+        "Isabelle Chang",
+        "Mara Elio"
+    ],
+    "blind_grade_avg": 0.25,
+    "informed_grade_avg": 1.0
+}
+```
+
+A question that appears to be too easy (for a model) to answer even without conditioning information:
+```json
+{
+    "event_id": "event_000",
+    "fiction_id": "event_000_style_news_num_001",
+    "question_id": "event_000_style_news_num_001_question_002",
+    "natural_answer": "acoustic engineering and psychological principles",
+    "input": "Question: What two fields were combined to create Soul Harmony?\n\nAnswer: ",
+    "target": "acoustic engineering and psychological principles",
+    "target_idx": 3,
+    "topk_choices": [
+        "biochemistry and neurotechnology",
+        "environmental science and cultural anthropology",
+        "urban planning and spiritual practices",
+        "acoustic engineering and psychological principles"
+    ],
+    "blind_grade_avg": 1.0,
+    "informed_grade_avg": 1.0
+}
+```
+
+In the version of the MCQ's included in this dataset split, no deduplication or filtering with respect to the blind/informed annotation is done; all 7500 questions are included here. However, we recommend dropping duplicates and filtering for questions with lower `blind_grade_avg` annotations. Filtered views of these questions, as well as splittings where the MCQ's that correspond to specific sub splits of the fictional events and documents are grouped together, are all included in the companion dataset: [hf.co/datasets/jwkirchenbauer/fictionalqa_training_splits](https://hf.co/datasets/jwkirchenbauer/fictionalqa_training_splits). 
+
+While this MCQ data can be used in a variety of ways, it is specifically structured so that it can be used inside of the Eleuther's lm-eval-harness. A dir containing the task definitions required to run the MCQ tests in the harness is provided as a set of yaml files at the relative path `lm_eval/tasks/fictional_qa` in the generation repo (linked at top) and needs to be copied into a copy of the lm-eval-harness repository under the tasks dir in order to be run.
+
 ## Dataset Creation
 
 ### Source Data
@@ -488,11 +576,13 @@ This dataset was created in a fully synthetic manner using a closed source LLM a
 
 We utilized GPT-4o-2024-08-06 (Hurst et al., 2024) to generate and annotate the dataset.
 
+**⚠️ Note:** The updated version of fully model-generated MCQ's was created and annotated with a version of GPT-5 in early 2026 (i.e. only split `gend_mcq_w_grades_03-01-26`); specifically the `gpt-5-mini-2025-08-07` model, with `reasoning_effort` and `verbosity` set to "low".
+
 ### Citation
 
 ```bibtex
 @article{kirchenbauer2025fictionalqa,
-  title={{A Fictional Q&A Dataset for Studying Memorization and Knowledge Acquisition}},
+  title={{FictionalQA: A Dataset for Studying Memorization and Knowledge Acquisition}},
   author={John Kirchenbauer and Janny Mongkolsupawan and Yuxin Wen and Tom Goldstein and Daphne Ippolito},
   journal={arXiv preprint},
   year={2025}

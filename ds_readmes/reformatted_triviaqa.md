@@ -174,7 +174,7 @@ archivePrefix = {arXiv},
 Our work:
 ```bibtext
 @article{kirchenbauer2025fictionalqa,
-  title={{A Fictional Q&A Dataset for Studying Memorization and Knowledge Acquisition}},
+  title={{FictionalQA: A Dataset for Studying Memorization and Knowledge Acquisition}},
   author={John Kirchenbauer and Janny Mongkolsupawan and Yuxin Wen and Tom Goldstein and Daphne Ippolito},
   journal={arXiv preprint},
   year={2025}
